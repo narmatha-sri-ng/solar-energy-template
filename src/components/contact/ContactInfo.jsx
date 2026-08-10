@@ -42,7 +42,7 @@ export const ContactInfo = () => {
               <a href={`mailto:${companyData.contact.email}`} className="text-base font-bold text-white hover:text-[#f0771a] transition-colors">
                 {companyData.contact.email}
               </a>
-            </div> 
+            </div>
           </div>
 
           {/* Address */}

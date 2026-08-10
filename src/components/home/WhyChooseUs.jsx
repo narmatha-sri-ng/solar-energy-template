@@ -15,7 +15,7 @@ export const WhyChooseUs = () => {
   return (
     <section className="py-20 lg:py-28 bg-slate-900 text-white relative overflow-hidden">
       <div className="absolute top-0 left-1/3 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
-      
+
       <Container className="relative z-10">
         <SectionTitle
           badge="Why Choose Us"
