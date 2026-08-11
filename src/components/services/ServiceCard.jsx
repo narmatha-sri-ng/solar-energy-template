@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Home, Building2, Factory, BatteryCharging, Wrench, Zap, CheckCircle2, ArrowRight } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Home, Building2, Factory, BatteryCharging, Wrench, Zap, CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '../common/Button';
 import { ImageWithFallback } from '../common/ImageWithFallback';
 
@@ -15,9 +15,16 @@ const iconMap = {
 
 export const ServiceCard = ({ service, compact = false }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const IconComponent = iconMap[service.icon] || Zap;
 
-  const handleRequestQuote = () => {
+  // Active hash highlighting logic (shared across Navbar and Footer navigation)
+  const isHighlighted = location.hash === `#${service.id}`;
+
+  const handleRequestQuote = (e) => {
+    if (e && e.stopPropagation) {
+      e.stopPropagation();
+    }
     navigate('/contact', {
       state: {
         selectedService: service.title
@@ -26,7 +33,22 @@ export const ServiceCard = ({ service, compact = false }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full overflow-hidden group card-hover">
+    <div
+      id={service.id}
+      className={`scroll-mt-28 bg-white rounded-2xl transition-all duration-500 flex flex-col h-full overflow-hidden group relative ${
+        isHighlighted
+          ? 'border-2 border-[#f0771a] ring-4 ring-orange-500/20 shadow-2xl scale-[1.01]'
+          : 'border border-slate-100 shadow-md hover:shadow-xl'
+      }`}
+    >
+      {/* Active Service Badge Tag */}
+      {isHighlighted && (
+        <div className="absolute top-4 right-4 z-20 bg-[#f0771a] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg border border-orange-400 flex items-center gap-1.5 animate-in fade-in zoom-in-95 duration-200">
+          <Sparkles className="w-3.5 h-3.5 fill-white" />
+          <span>Active Selection</span>
+        </div>
+      )}
+
       {/* Service Image Header */}
       <div className="relative h-48 sm:h-56 overflow-hidden bg-slate-900">
         <ImageWithFallback
@@ -43,7 +65,7 @@ export const ServiceCard = ({ service, compact = false }) => {
         </div>
 
         {/* Highlight Stat Tag */}
-        {service.highlightStats && (
+        {service.highlightStats && !isHighlighted && (
           <div className="absolute bottom-4 left-4 right-4 bg-amber-950/80 backdrop-blur-md text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-lg border border-amber-800/60 truncate">
             {service.highlightStats}
           </div>
@@ -52,7 +74,7 @@ export const ServiceCard = ({ service, compact = false }) => {
 
       {/* Service Content */}
       <div className="p-6 sm:p-7 flex flex-col flex-grow">
-        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-[#f0771a] transition-colors mb-3">
+        <h3 className={`text-xl sm:text-2xl font-bold transition-colors mb-3 ${isHighlighted ? 'text-[#f0771a]' : 'text-slate-900 group-hover:text-[#f0771a]'}`}>
           {service.title}
         </h3>
 
@@ -72,7 +94,7 @@ export const ServiceCard = ({ service, compact = false }) => {
           </ul>
         )}
 
-        {/* Action Link */}
+        {/* Action Link — Direct navigation to /contact */}
         <div className="pt-2">
           <Button
             onClick={handleRequestQuote}

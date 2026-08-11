@@ -12,7 +12,7 @@ export const StatCard = ({ value, label, description, icon: Icon, dark = false }
           <Icon className="w-6 h-6" />
         </div>
       )}
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#f0771a] tracking-tight font-serif mb-2">
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#f0771a] tracking-tight mb-2">
         {value}
       </div>
       <div className={`text-base font-bold mb-1 ${dark ? 'text-white' : 'text-slate-900'}`}>

@@ -8,19 +8,32 @@ import { Services } from './pages/Services';
 import { Projects } from './pages/Projects';
 import { Contact } from './pages/Contact';
 
-// Scroll to top helper on route transitions
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+// Scroll & Hash Navigation helper
+const ScrollHandler = () => {
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
   return null;
 };
 
 export function App() {
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollHandler />
       <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans selection:bg-[#f0771a] selection:text-white overflow-x-hidden">
         <Navbar />
         <main className="flex-grow overflow-x-hidden">

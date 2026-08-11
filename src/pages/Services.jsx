@@ -56,7 +56,7 @@ export const Services = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="glass-panel-dark p-8 rounded-2xl border border-slate-800">
-              <div className="text-3xl font-extrabold text-amber-400 font-serif mb-2">25 Years</div>
+              <div className="text-3xl font-extrabold text-amber-400 mb-2">25 Years</div>
               <h4 className="text-xl font-bold text-white mb-2">Linear Power Output Warranty</h4>
               <p className="text-slate-300 text-sm leading-relaxed">
                 Guaranteed panel performance ensuring your solar array maintains at least 85% output after 25 full years of operation.
@@ -64,7 +64,7 @@ export const Services = () => {
             </div>
 
             <div className="glass-panel-dark p-8 rounded-2xl border border-slate-800">
-              <div className="text-3xl font-extrabold text-[#f0771a] font-serif mb-2">10 Years</div>
+              <div className="text-3xl font-extrabold text-[#f0771a] mb-2">10 Years</div>
               <h4 className="text-xl font-bold text-white mb-2">Workmanship Guarantee</h4>
               <p className="text-slate-300 text-sm leading-relaxed">
                 Full coverage on roof penetrations, mounting brackets, structural racking, and electrical wiring work.
@@ -72,7 +72,7 @@ export const Services = () => {
             </div>
 
             <div className="glass-panel-dark p-8 rounded-2xl border border-slate-800">
-              <div className="text-3xl font-extrabold text-amber-400 font-serif mb-2">24/7</div>
+              <div className="text-3xl font-extrabold text-amber-400 mb-2">24/7</div>
               <h4 className="text-xl font-bold text-white mb-2">Real-Time Mobile Monitoring</h4>
               <p className="text-slate-300 text-sm leading-relaxed">
                 Automated system telemetry alerts our maintenance team instantly if an inverter or string experiences output drops.

@@ -23,7 +23,7 @@ export const HowItWorks = () => {
               className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-md hover:shadow-lg transition-all duration-300 relative flex flex-col justify-between group"
             >
               <div>
-                <div className="text-4xl font-extrabold text-[#f0771a] font-serif mb-4 group-hover:scale-110 transition-transform origin-left">
+                <div className="text-4xl font-extrabold text-[#f0771a] mb-4 group-hover:scale-110 transition-transform origin-left">
                   {step.step}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">

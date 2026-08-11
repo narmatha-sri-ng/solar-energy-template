@@ -10,7 +10,7 @@ import { TestimonialsSection } from '../components/home/TestimonialsSection';
 import { FAQSection } from '../components/home/FAQSection';
 import { CTASection } from '../components/common/CTASection';
 
-export const Home = () => {
+export const Home = () => { 
   return (
     <>
       <HeroSection />

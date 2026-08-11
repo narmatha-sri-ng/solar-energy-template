@@ -27,7 +27,7 @@ export const AboutPreview = () => {
 
             {/* Experience Counter Card */}
             <div className="absolute -bottom-6 -right-6 sm:right-6 glass-panel p-6 rounded-2xl shadow-xl max-w-xs border border-orange-100 hidden sm:block">
-              <div className="text-4xl font-extrabold text-[#f0771a] font-serif mb-1">
+              <div className="text-4xl font-extrabold text-[#f0771a] mb-1">
                 10+ Years
               </div>
               <p className="text-xs font-semibold text-slate-700">
