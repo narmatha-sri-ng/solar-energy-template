@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Sun, Phone, Mail, MapPin, Clock, ArrowUpRight, Linkedin, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
 import { companyData } from '../../data/company';
 import { navigationData } from '../../data/navigation';
@@ -14,6 +14,14 @@ const socialIcons = {
 };
 
 export const Footer = () => {
+  const location = useLocation();
+
+  const handleNavClick = (path) => {
+    // Always scroll to top — especially useful when clicking the same-page link
+    if (location.pathname === path) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
   return (
     <footer className="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-900">
       <Container>
@@ -21,7 +29,7 @@ export const Footer = () => {
           
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-flex items-center gap-2.5 group">
+            <Link to="/" onClick={() => handleNavClick('/')} className="inline-flex items-center gap-2.5 group">
               <img
                 src={companyData.logo}
                 alt={`${companyData.name} Logo`}
@@ -68,6 +76,7 @@ export const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.path}
+                    onClick={() => handleNavClick(link.path)}
                     className="hover:text-[#f0771a] transition-colors inline-flex items-center gap-1 group"
                   >
                     <span>{link.label}</span>
@@ -87,6 +96,7 @@ export const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.path}
+                    onClick={() => handleNavClick(link.path)}
                     className="hover:text-[#f0771a] transition-colors inline-flex items-center gap-1"
                   >
                     <span>{link.label}</span>

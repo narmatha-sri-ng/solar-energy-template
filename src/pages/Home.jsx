@@ -1,6 +1,5 @@
 import React from 'react';
 import { HeroSection } from '../components/home/HeroSection';
-import { TrustedBy } from '../components/home/TrustedBy';
 import { AboutPreview } from '../components/home/AboutPreview';
 import { ServicesPreview } from '../components/home/ServicesPreview';
 import { WhyChooseUs } from '../components/home/WhyChooseUs';
@@ -15,7 +14,6 @@ export const Home = () => {
   return (
     <>
       <HeroSection />
-      <TrustedBy />
       <AboutPreview />
       <ServicesPreview />
       <WhyChooseUs />
